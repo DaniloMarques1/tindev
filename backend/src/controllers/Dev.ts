@@ -3,7 +3,7 @@ import request from '../http/request';
 import DevModel from '../models/Dev';
 
 export default abstract class DevController {
-    public static async store(req: Request, res: Response) {
+    public static async store(req: Request, res: Response): Promise<Response> {
         const {username} = req.body;
         
         const userExist = await DevModel.findOne({user: username});

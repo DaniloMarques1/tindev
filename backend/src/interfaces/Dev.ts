@@ -6,4 +6,6 @@ export default interface Dev extends Document {
     bio: string;
     avatar: string;
     timestamps: string;
+    likes: string[];
+    dislikes: string[];
 }

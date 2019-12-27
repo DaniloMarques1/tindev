@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import routes from './routes'
+import cors from 'cors';
 
 class App {
     private app: express.Application;
@@ -18,6 +19,7 @@ class App {
     private middleware(): void {
         this.app.use(express.json());
         this.app.use(routes);
+        this.app.use(cors());
     }
 
     private database(): void {

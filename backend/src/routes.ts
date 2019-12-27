@@ -5,4 +5,5 @@ const routes = Router();
 
 routes.post('/devs', DevController.store);
 
+
 export default routes;

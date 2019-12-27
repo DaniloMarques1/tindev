@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import request from '../http/request';
 import DevModel from '../models/Dev';
 
-export default class DevController {
+export default abstract class DevController {
     public static async store(req: Request, res: Response) {
         const {username} = req.body;
         

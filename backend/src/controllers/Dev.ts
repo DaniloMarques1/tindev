@@ -3,6 +3,25 @@ import request from '../http/request';
 import DevModel from '../models/Dev';
 
 export default abstract class DevController {
+
+    public static async index(req: Request, res: Response): Promise<Response> {
+        const { user } = req.headers;
+
+        const loggedDev = await DevModel.findById(user);
+
+        const users = await DevModel.find({
+            $and: [
+                { _id: { $ne: user } },
+                { _id: { $nin: loggedDev?.likes }},
+                { _id: { $nin: loggedDev?.dislikes } }
+            ]
+        });
+
+
+        return res.json(users);
+
+    }
+
     public static async store(req: Request, res: Response): Promise<Response> {
         const {username} = req.body;
         

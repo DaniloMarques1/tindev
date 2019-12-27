@@ -6,6 +6,7 @@ import DislikeController from './controllers/Dislike';
 const routes = Router();
 
 //DEVS
+routes.get('/devs', DevController.index);
 routes.post('/devs', DevController.store);
 
 //LIKES

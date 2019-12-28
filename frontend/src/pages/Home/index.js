@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function Home() {
+export default function Home({ match }) {
     return (
-        <h1>Home</h1>
+        <h1>{match.params.id}</h1>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import Logo from '../../assets/logo.png';
 import {
     Container,
@@ -8,13 +9,21 @@ import {
     Card,
     Footer,
     DevName,
-    DevBio
+    DevBio,
+    Button
 } from './styles';
 
-export default function Home() {
+export default function Home( { navigation }) {
+    const handleLogout = async  () => {
+        console.log('Clicado')
+        await AsyncStorage.clear();
+        navigation.navigate('Login');
+    }
     return (
-        <Container > 
-            <ImageLogo  source={Logo}/>
+        <Container >
+            <Button onPress={handleLogout}>
+                <ImageLogo  source={Logo}/>
+            </Button>
             <CardContainer>
                 <Card>
                     <Avatar source={{uri: 'https://avatars1.githubusercontent.com/u/72895?v=4'}} />

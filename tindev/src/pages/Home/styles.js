@@ -7,7 +7,11 @@ export const Container = styled.SafeAreaView `
     justify-content: space-between;
 `;
 
+export const Button = styled.TouchableOpacity ` 
+`
+
 export const ImageLogo = styled.Image ` 
+    margin-top: 30px;
 `
 export const Avatar = styled.Image ` 
     flex: 1;

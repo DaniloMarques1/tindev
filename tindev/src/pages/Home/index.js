@@ -1,9 +1,14 @@
 import React from 'react';
 
 import {
-    Container
+    Container,
+    Title
 } from './styles';
 
 export default function Home() {
-    <Container />
+    return (
+        <Container > 
+            <Title>Ola, Home!</Title>
+        </Container>
+    )
 }

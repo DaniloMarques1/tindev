@@ -5,13 +5,12 @@
  * @format
  * @flow
  */
-
-import React from 'react';
-import Login from './pages/Login/index';
+ import React from 'react';
+ import Routes from './routes';
 
 export default function App() {
   return (
-    <Login />
+    <Routes />
   )
 }
 

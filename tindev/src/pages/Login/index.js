@@ -10,7 +10,14 @@ import {
     ButtonText
 } from './styles';
 
-export default function Login() {
+export default function Login( { navigation } ) {
+    function handleLogin() {
+        navigation.navigate('Home');
+    }
+    // const handleLogin = () => {
+    //     navigation.navigate('Main');
+    // }
+
     return (
         <Container>
             <LogoImg source={Logo} />
@@ -20,7 +27,7 @@ export default function Login() {
                 placeholder='Digite seu usuario do github'
                 placeholderTextColor='#999'
             />
-            <Button>
+            <Button onPress={handleLogin}>
                 <ButtonText>
                     Entrar
                 </ButtonText>

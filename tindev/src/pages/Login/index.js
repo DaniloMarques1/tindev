@@ -1,6 +1,7 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import Logo from '../../assets/logo.png';
+import api from '../../services/api';
 
 import {
     Container,
@@ -11,17 +12,35 @@ import {
 } from './styles';
 
 export default function Login( { navigation } ) {
-    function handleLogin() {
-        navigation.navigate('Home');
+    const [dev, setDev] = useState('');
+
+    useEffect(() => {
+        AsyncStorage.getItem('user').then(user => {
+            if (user) {
+                navigation.navigate('Home', user);
+            }
+        });
+    }, [])
+
+    const handleLogin = async () => {
+        try {
+            const response = await api.post('/devs', {
+                username: dev
+            });
+            const { _id} = response.data;
+            await AsyncStorage.setItem('user', _id);
+            navigation.navigate('Home', _id); 
+        } catch(e) {
+
+        }
     }
-    // const handleLogin = () => {
-    //     navigation.navigate('Main');
-    // }
 
     return (
         <Container>
             <LogoImg source={Logo} />
             <Input
+                value={dev}
+                onChangeText={setDev}
                 autoCapitalize='none'
                 autoCorrect={false}
                 placeholder='Digite seu usuario do github'

@@ -7,9 +7,6 @@ export const Container = styled.SafeAreaView `
     justify-content: space-between;
 `;
 
-export const Button = styled.TouchableOpacity ` 
-`
-
 export const ImageLogo = styled.Image ` 
     margin-top: 30px;
 `
@@ -52,3 +49,29 @@ export const Footer = styled.View `
     margin-top: 5px;
     line-height: 18px;
  `;
+export const ButtonLogout = styled.TouchableOpacity ` 
+`;
+export const ImageButton = styled.Image  ` 
+`
+
+ export const ContainerButtos = styled.View `
+    flex-direction:  row;
+    margin-bottom: 30px;
+`;
+
+export const Button = styled.TouchableOpacity ` 
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+`;
+
+export const End = styled.Text ` 
+    align-self: center;
+    font-size: 32px;
+    color: #999;
+    font-weight: bold;
+`;

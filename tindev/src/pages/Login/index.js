@@ -27,9 +27,10 @@ export default function Login( { navigation } ) {
             const response = await api.post('/devs', {
                 username: dev
             });
+            console.log(response.data);
             const { _id} = response.data;
             await AsyncStorage.setItem('user', _id);
-            navigation.navigate('Home', _id); 
+            navigation.navigate('Home', { user: _id }); 
         } catch(e) {
 
         }
